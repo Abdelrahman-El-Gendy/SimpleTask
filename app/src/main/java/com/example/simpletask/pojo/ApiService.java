@@ -22,13 +22,14 @@ public interface ApiService {
 
     @POST("auth")
     Call<LoginResponse> authenticate(
-            @Body LoginRequest loginRequest
+            @Query("j_username") String username,
+            @Query("j_password") String password
     );
 
 //    @FormUrlEncoded
 //    @POST("auth?")
 //    Call<LoginResponse> authenticate(@Body HashMap<Object,Object> map);
 
-    @GET("tasks/16-06-2021/16-06-2021")
+    @POST("tasks/16-06-2021/16-06-2021")
     Call<List<Task>> getTasks();
 }

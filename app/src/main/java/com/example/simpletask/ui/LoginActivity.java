@@ -61,10 +61,10 @@ public class LoginActivity extends AppCompatActivity {
 //        showLoading(true);
 
         loginRequest = new LoginRequest();
-        loginRequest.setJ_username(username);
+        loginRequest.setJ_password(username);
         loginRequest.setJ_password(password);
         ApiService apiService = RetrofitClient.getInstance().create(ApiService.class);
-        Call<LoginResponse> call = apiService.authenticate(loginRequest);
+        Call<LoginResponse> call = apiService.authenticate(username,password);
 
         call.enqueue(new Callback<LoginResponse>() {
             @Override
