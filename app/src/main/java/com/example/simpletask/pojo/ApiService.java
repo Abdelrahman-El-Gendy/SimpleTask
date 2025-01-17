@@ -20,15 +20,11 @@ import retrofit2.http.Query;
 
 public interface ApiService {
 
-    @POST("auth")
+    @POST("rest/service/auth")
     Call<LoginResponse> authenticate(
             @Query("j_username") String username,
             @Query("j_password") String password
     );
-
-//    @FormUrlEncoded
-//    @POST("auth?")
-//    Call<LoginResponse> authenticate(@Body HashMap<Object,Object> map);
 
     @POST("tasks/16-06-2021/16-06-2021")
     Call<List<Task>> getTasks();

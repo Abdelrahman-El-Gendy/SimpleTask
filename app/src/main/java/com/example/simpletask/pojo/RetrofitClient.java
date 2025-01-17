@@ -1,11 +1,11 @@
 package com.example.simpletask.pojo;
 
 import retrofit2.Retrofit;
-import retrofit2.converter.simplexml.SimpleXmlConverterFactory;
+import retrofit2.converter.jaxb.JaxbConverterFactory;
 
 public class RetrofitClient {
 
-    private static final String BASE_URL = "http://operation.tez-tour.com/rest/service/";
+    private static final String BASE_URL = "http://operation.tez-tour.com/";
     private static Retrofit retrofit;
 
     public static Retrofit getInstance() {
@@ -13,7 +13,7 @@ public class RetrofitClient {
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
-                    .addConverterFactory(SimpleXmlConverterFactory.create())
+                    .addConverterFactory(JaxbConverterFactory.create())
                     .build();
         }
         return retrofit;
